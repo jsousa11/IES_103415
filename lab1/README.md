@@ -122,25 +122,13 @@ No final será apresentado:
 
 ```git log```
 
-### Exemplo ilustrativo
-
-```
-cd project_folder # move to the root of the working folder to be imported
-git init # initialize a local git repo in this folder
-git remote add origin <REMOTE_URL> #must adapt the url for your repo
-git add. # mark all existing changes in this root to be commited
-git commit -m "Initial project setup for exercise 1_3" #create the
-commit snapshot locally
-git push -u origin main #uploads the local commit to the shared repo
-```
-
 ### Adicionar ficheiro .gitignore
 Este ficheiro é colocado na raíz do repositório e serve para ignorar todos os ficheiros que não são importantes, ou seja, ficheiros que não vão ser commited
 
 Neste exercício foi simulada a existência de outro colaborador, para isso foi criada uma nova pasta com o nome 'location2', noutro diretório do computador.
 
 ```
-git clone git@github.com:pedromonteiro01/IES_97484.git
+git clone git@github.com:Souz11/IES_103415.git
 ```
 
 O comando acima foi usado para obter os ficheiros no novo local.
