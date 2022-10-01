@@ -232,60 +232,72 @@ Alterações em weatherforecastbycity/pom.xml
   ```
 
 ## Review questions
-A)
-As principais fases de um projeto maven são: - validate: validate the project is correct and all necessary information is available - compile: compile the source code of the project - test: test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed - package: take the compiled code and package it in its distributable format, such as a JAR - verify: run any checks on results of integration tests to ensure quality criteria are met - install: install the package into the local repository, for use as a dependency in other projects locally - deploy: done in the build environment, copies the final package to the remote repository for sharing with other developers and projects
+### A) 
+Maven has three lifecycles: clean, site and default. Explain the main phases in the default lifecycle.
 
-B)
-Sim, o maven é uma build automation tool usada principalmente para projetos Java, sendo que pode ser usada com qualquer outro tipo de linguagem (C#, Ruby, etc). É uma ferramente que permite gerir projetos, que se baseia no POM (Project Object Model). Pode ser usado para gerir e para correr projetos, tornando todo o processo mais fácil. Podem ser facilmente usados diferentes plugins e diferentes dependências de acordo com o nosso projeto.
+Validate-> validate the project is correct and all necessary information is available
 
-C)
-Começar por obter o código presente no repositório, isto é, fazer clone do repositório.
+Compile-> compile the source code of the project
 
-```git clone <REPOSITORY_URL>```
+Test-> test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
 
-Caso já tenha o repositório no computador, descarregar as atualizações mais recentes
+Package-> take the compiled code and package it in its distributable format, such as a JAR.
+
+Verify-> run any checks on results of integration tests to ensure quality criteria are met
+
+Install-> install the package into the local repository, for use as a dependency in other projects locally
+
+Deploy-> done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
+
+### B) 
+Maven is a build tool; is it appropriate to run your project to?
+
+Yes, it is. Maven main purpose is to configure projects and handle the build activities and resulting artifacts but t can also activate different plugins which can be used to execute(run) specific classes.
+###C) What would be a likely sequence of Git commands required to contribute with a new feature to a given project? (i.e., get a fresh copy, develop some increment, post back the added functionality)
 
 ```git pull```
 
-Entrar no diretório correto
-
-```cd project_folder```
-
-Adicionar os ficheiros alterados (será usado "." que significa todos os ficheiros)
+To get the most recent changes of the code.
 
 ```git add .```
 
-Escrever a mensagem de commit
+To add the files we want to update. Parameter "." means we're selecting everything from the repository.
 
-```git commit -m "This is a commit message!"```
+```git commit -m "Lab01 completed"```
 
-Enviar os ficheiros para o repositório
+To commit the changes. It requires parameter -m followed by a commit message.
 
 ```git push```
 
-D)
-Na minha opinião as mensagens de commit são importantes em todos os trabalhos, especialmente nos trabalhos de equipa para garantir uma boa comunicação, ou seja, todos os membros estarem em sintonia, isto é, saberem o que já foi feito, evitando pensar em algo que já foi implementado. Uma boa mensagem deve encaminhar para aquilo que é preciso ser feito.
+To update the repository with the newly committed changes.
 
-Fonte: https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/
-Dicas/Regras para uma boa mensagem de commit:
+### D) 
+There are strong opinions on how to write Git commit messages… Find some best practices online and give your own informed recommendations on how to write good commit messages (in a team project).
 
-1. Deve-se especificar o tipo de commit
-- feat: adicionar uma nova feature 
--  fix: corrigir um erro
-- style: mudanças relacionadas com o estilo da aplicação
-- refactor: refazer uma secção específica da app 
--  test: tudo relacionado com testes
-- docs: tudo relacionado com documentação
-2. Separar o assunto do corpo da mensagem com uma linha em branco
-3. A mensagem não deve conter erros relacionados com espaços em branco
-4. Remover marcas de pontuação desnecessárias
-5. Não terminar a linha do assunto com um ponto final
-6. Usar maiúscula na primeira letra do assunto e em cada parágrafo
-7. Usar o modo imperativo
-8. Usar o corpo da mensagem para explicar as mundanças e o porquê
-9. Não assumir que quem revê o código sabe a priori qual o problema, deve-se adicionar
-10. Não pensar que o código é auto-explicativo
-11. Seguir a convenção usada pela equipa
+Commit messages are important because they give us a generalized idea of what is going on in the current code and to know what was updated or removed, so other colaboratores can be on the same page. The contributors to these repositories know that a well-crafted Git commit message is the best way to communicate context about a change to fellow developers
 
-E)
-É importante porque se usarmos sempre o mesmo container a cada vez que é executado docker stop/start é necessário reiniciar. Caso se use docker run vai ser criado um novo container vazio, ou seja, vão ser perdidos dados. É,então, necessário criar volumes com espaço suficiente (sendo que o espaço default é muito baixo) para database production e garantir que há uma boa estratégia de backup, evitando assim que haja dados que são perdidos.
+7 rules:
+Separate subject from body with a blank line
+Limit the subject line to 50 characters
+Capitalize the subject line
+Do not end the subject line with a period
+Use the imperative mood in the subject line
+Wrap the body at 72 characters
+Use the body to explain what and why vs. how
+
+
+Example:
+
+__Bad__
+
+```git commit -m "Fix bug"```
+
+__Good__
+
+```git commit -m "Add auto login for verified users - Closes BLG-20"```
+
+### E) 
+Docker automatically prepares the required volume space as you start a container. Why is it important that you take an extra step configuring the volumes for a (production) database?
+
+Volumes help you decouple the configuration of the Docker host from the container runtime. When you want to store your container's data on a remote host or a cloud provider, rather than locally. When you need to back up, restore, or migrate data from one Docker host to another, volumes are a better choice.
+Dedicated resources makes data safer agaisnt problems like container deletion and it is aso easier to backup production databases.
