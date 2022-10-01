@@ -196,41 +196,6 @@ Foram criados 2 projetos maven para a resolução deste exercício. o projeto ip
 
 Para a resolução deste exercício foi necessária a comunicação entre 2 projetos mavens. Para isso os ficheiros pom.xml foram alterados, bem como também foram usados alguns comandos.
 
-Alterações em ipmaclient_api/pom.xml (para além das dependências necessárias)
-
-```
-<plugin>
-    <artifactId>maven-assembly-plugin</artifactId>
-    <configuration>
-        <archive>
-            <manifest>
-                <mainClass>fully.qualified.MainClass</mainClass>
-            </manifest>
-        </archive>
-        <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-        </descriptorRefs>
-    </configuration>
-</plugin>
-```
-
-Alterações em weatherforecastbycity/pom.xml
-
-```
-    <dependency>
-      <groupId>com.ipmaapiclient</groupId>
-      <artifactId>ipmaclient_api</artifactId>
-      <version>1.1</version>
-   </dependency>
-
-  <repositories>
-    <repository>
-        <id>my-local-repo</id>
-        <url>file://${basedir}/lib</url>
-    </repository>
-  </repositories>
-  ```
-
 ## Review questions
 ### A) 
 Maven has three lifecycles: clean, site and default. Explain the main phases in the default lifecycle.
@@ -253,7 +218,9 @@ Deploy-> done in the build environment, copies the final package to the remote r
 Maven is a build tool; is it appropriate to run your project to?
 
 Yes, it is. Maven main purpose is to configure projects and handle the build activities and resulting artifacts but t can also activate different plugins which can be used to execute(run) specific classes.
-###C) What would be a likely sequence of Git commands required to contribute with a new feature to a given project? (i.e., get a fresh copy, develop some increment, post back the added functionality)
+
+### C) 
+What would be a likely sequence of Git commands required to contribute with a new feature to a given project? (i.e., get a fresh copy, develop some increment, post back the added functionality)
 
 ```git pull```
 
