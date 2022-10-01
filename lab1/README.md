@@ -1,5 +1,5 @@
 # IES_103415
-##Exercício 1.1
+## Exercício 1.1
 
 Para a realização do guião do guião é necessária a instalação do Maven (que requer que a linguagem Java esteja instalada, sendo recomendada a versão 11 do JDK)
 
@@ -15,7 +15,7 @@ De seguida, verificar a versão do Maven que foi instalada
 
 ```mvn --version```
 
-##Exercício 1.2
+## Exercício 1.2
 
 Usual Command Line Commands
 
@@ -51,7 +51,7 @@ my-app
 `-- AppTest.java
 ```
 
-###The POM
+### The POM
 O ficheiro pom.xml é o ficheiro principal de configuração de um projeto Maven. É neste ficheiro que está a maior parte da informação necessária para a criação de um projeto.
 
 Um exemplo de um ficheiro pom.xml: my-app/pom.xml
@@ -73,7 +73,7 @@ No final será apresentado:
 Ao contrário do primeiro comando (archetype:generate), este é apenas uma palavra, package. Para além de ser um goal, é também um fase, pelo que também serão executadas todas as fases anteriores.
 ```
 
-###Run and Test
+### Run and Test
 
 ```java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App```
 
@@ -101,33 +101,33 @@ Para correr o programa com argumentos de entrada
 
 ```mvn exec:java -Dexec.mainClass="package.class" -Dexec.args="arg0 arg1 arg2"```
 
-##Exercício 1.3
+## Exercício 1.3
 
-###Criar novo repositório Git
+### Criar novo repositório Git
 
 ```git init```
 
-###Verificar estado dos arquivos/diretórios
+### Verificar estado dos arquivos/diretórios
 
 ```git status```
 
-###Adicionar um diretório em específico
+### Adicionar um diretório em específico
 
 ```git add meu_diretorio```
 
-###Commit de um arquivo
+### Commit de um arquivo
 
 ```git commit meu_arquivo.txt```
 
-###Remover diretório
+### Remover diretório
 
 ```git rm -r diretorio```
 
-###Exibir histórico
+### Exibir histórico
 
 ```git log```
 
-###Exemplo ilustrativo
+### Exemplo ilustrativo
 
 ```
 cd project_folder # move to the root of the working folder to be imported
@@ -139,7 +139,7 @@ commit snapshot locally
 git push -u origin main #uploads the local commit to the shared repo
 ```
 
-###Adicionar ficheiro .gitignore
+### Adicionar ficheiro .gitignore
 Este ficheiro é colocado na raíz do repositório e serve para ignorar todos os ficheiros que não são importantes, ou seja, ficheiros que não vão ser commited
 
 Neste exercício foi simulada a existência de outro colaborador, para isso foi criada uma nova pasta com o nome 'location2', noutro diretório do computador.
@@ -193,11 +193,11 @@ Para que seja possível ver todas as mensagens enviadas em cada commit pode ser 
 
 Serão listadas todas as mensagens, de todos os colaboradores do projeto.
 
-##Exercício 1.4
+## Exercício 1.4
 
 Introdução ao Docker
 
-###O que são imagens? (docker images)
+### O que são imagens? (docker images)
 Pode-se entender as imagens como sendo um template (uma classe OOP) que permite iniciar um container. Cada imagem é definida por um Dockerfile, um arquivo de configuração que contém todos os comandos que um utilizador precisa executar para modelar a imagem.
 
 Começar por instalar o docker engine, disponível em https://docs.docker.com/engine/install/. Após a instalação, para uma melhor interação pode-se executar o docker sem ser necessário usar permissões, isto é, sem sudo - https://docs.docker.com/engine/install/linux-postinstall/.
@@ -206,7 +206,7 @@ Tutorial e Getting Started: https://docs.docker.com/get-started/ Foi seguido o t
 
 Foi instalada também a Portainer app, disponível em https://www.portainer.io/, que é uma web application e facilita o controlo dos containers.
 
-###Alguns comandos docker:
+### Alguns comandos docker:
 Ver os containers que estão a correr no momento
 
 ```docker ps```
@@ -238,7 +238,7 @@ docker run --name pg-docker -e POSTGRES_PASSWORD=docker -e POSTGRES_DB=sampledb
 -e PGDATA=/tmp -d -p 5433:5432 -v ${PWD}:/var/lib/postgresql/data postgres:11
 ```
 
-###O que é o docker compose?
+### O que é o docker compose?
 É uma ferramenta que permite definir e correr multi-container Docker applications. É usado um ficheiro YAML para configurar os serviços. Depois, com um simples comando é possível criar e começar todos os serviços.
 
 Usar o docker compose consiste em 3 processos:
@@ -269,7 +269,7 @@ volumes:
 logvolume01: {}
 ```
 
-##Exercício 1.5
+## Exercício 1.5
 
 Foram criados 2 projetos maven para a resolução deste exercício. o projeto ipmaclient_api contém os dados da API, ou seja, contém os ficheiros responsáveis por obterem as temperaturas das cidades. O projeto weatherforecastbycity contém uma main simples, disponível em main, onde é chamada a função criada no primeiro projeto, que recebe como parametro o argumento da linha de comandos (args[0]).
 
@@ -310,7 +310,7 @@ Alterações em weatherforecastbycity/pom.xml
   </repositories>
   ```
 
-##Review questions
+## Review questions
 A)
 As principais fases de um projeto maven são: - validate: validate the project is correct and all necessary information is available - compile: compile the source code of the project - test: test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed - package: take the compiled code and package it in its distributable format, such as a JAR - verify: run any checks on results of integration tests to ensure quality criteria are met - install: install the package into the local repository, for use as a dependency in other projects locally - deploy: done in the build environment, copies the final package to the remote repository for sharing with other developers and projects
 
