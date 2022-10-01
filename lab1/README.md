@@ -145,12 +145,6 @@ Este ficheiro é colocado na raíz do repositório e serve para ignorar todos os
 Neste exercício foi simulada a existência de outro colaborador, para isso foi criada uma nova pasta com o nome 'location2', noutro diretório do computador.
 
 ```
-|
-`-- Desktop
-    	   `--location2
-	|-- IES
-		|--IES_97484
-		            `--location1
 git clone git@github.com:pedromonteiro01/IES_97484.git
 ```
 
@@ -162,28 +156,6 @@ Links usados para criar os ficheiros:
 
 - https://www.baeldung.com/java-logging-intro
 - https://howtodoinjava.com/log4j2/log4j2-xml-configuration-example/
-
-Exemplo do ficheiro
-
-```
-<Configuration status="info">
-    <Appenders>
-        <Console name="sout" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%p] %d{HH:mm:ss} %m%n \n"/>
-        </Console>
-        <File name="file" fileName="logs.log" append="true">
-            <PatternLayout pattern="[%p] %d{HH:mm:ss} %m%n \n">
-            </PatternLayout>
-        </File>
-    </Appenders>
-    <Loggers>
-        <Root level="info">
-            <AppenderRef ref="sout"/>
-            <AppenderRef ref="file"/>
-        </Root>
-    </Loggers>
-</Configuration>
-```
 
 Para dar commit a partir desta nova localização (simulando, então, a existência de mais do que um colaborador para o projeto) foram usados os comandos descritos no início.
 
