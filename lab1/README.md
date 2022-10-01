@@ -1,37 +1,32 @@
 # IES_103415
-##Exercício 1.1
+## Exercise 1.1
 
-Para a realização do guião do guião é necessária a instalação do Maven (que requer que a linguagem Java esteja instalada, sendo recomendada a versão 11 do JDK)
-
+To create the script, it is necessary to install Maven (which requires the Java language to be installed, with JDK version 11 being recommended)
 Verificar a versão do Java instalada
 
 ```java --version```
 
-Para instalar o Maven foi usado o comando
+To install Maven, use the command
 
 ```sudo apt install maven```
 
-De seguida, verificar a versão do Maven que foi instalada
+Then check the version of Maven that was installed
 
 ```mvn --version```
 
-##Exercício 1.2
+## Exercise 1.2
 
-Usual Command Line Commands
+Build tool: Tools to obtain dependencies, compile source code, package artifacts, etc. Tools to state the project dependencies on external artifacts
 
-```mvn --version```
-
-Ver a versão Maven instalada
-
-Criar um projeto
+Create a project
 
 ```mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false```
 
-É criado um diretório com o mesmo nome do artifactId
+A directory with the same name as the artifactId is created
 
 ```cd my-app```
 
-Estrutura do Projeto
+Project Structure
 
 ```
 my-app
@@ -51,16 +46,40 @@ my-app
 `-- AppTest.java
 ```
 
-###The POM
-O ficheiro pom.xml é o ficheiro principal de configuração de um projeto Maven. É neste ficheiro que está a maior parte da informação necessária para a criação de um projeto.
+### The POM
+The pom.xml file is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects.
 
-Um exemplo de um ficheiro pom.xml: my-app/pom.xml
+### Maven Projects
 
-Build the Project Ao correr o comando,
+archetype: an original pattern or model from which all other things of the same type are made. Generic model of a component in the system.
+
+groupId: uniquely identifies the project among all projects. It must follow the package naming rules used in java, which means it starts with an inverted domain name that is controlled by the user. For example, com.mycompany.app, org.apache.maven, etc.
+
+artifactId: unversioned jar name
+
+A Maven project named my-app was created
+
+groupId: com.mycompany.app
+
+artifactId: my-app
+
+version: 1.0-SNAPSHOT
+
+Available in my-app
+
+To compile
 
 ```mvn package```
 
-No final será apresentado:
+To run the program (you must adapt the package and the class name)
+
+```mvn exec:java -Dexec.mainClass="package.class"```
+
+To run the program with input arguments
+
+```mvn exec:java -Dexec.mainClass="package.class" -Dexec.args="arg0 arg1 arg2"```
+
+At the end you will be presented:
 
 ```
 ...
@@ -70,206 +89,108 @@ No final será apresentado:
 [INFO] Total time:  2.953 s
 [INFO] Finished at: 2019-11-24T13:05:10+01:00
 [INFO] ------------------------------------------------------------------------
-Ao contrário do primeiro comando (archetype:generate), este é apenas uma palavra, package. Para além de ser um goal, é também um fase, pelo que também serão executadas todas as fases anteriores.
 ```
 
-###Run and Test
+## Exercise 1.3
 
-```java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App```
-
-###Projetos Maven
-archetype: um padrão ou modelo original do qual todas as outras coisas do mesmo tipo são feitas. Modelo genérico de uma componente no sistema.
-groupId: identifica de forma única o projeto entre todos os projetos. Deve seguir as normas de nomes para os pacotes utilizadas em java, o que significa que começa por um domain name invertido que é controlado pelo utilizador. Por exemplo, com.mycompany.app, org.apache.maven, etc.
-artifactId: nome do jar sem versão
-
-Foi criado um projeto Maven com o nome my-app
-
-groupId: com.mycompany.app
-artifactId: my-app
-version: 1.0-SNAPSHOT
-Disponível em my-app
-
-Para compilar
-
-```mvn package```
-
-Para correr o programa (deve-se adaptar o package e o nome da classe)
-
-```mvn exec:java -Dexec.mainClass="package.class"```
-
-Para correr o programa com argumentos de entrada
-
-```mvn exec:java -Dexec.mainClass="package.class" -Dexec.args="arg0 arg1 arg2"```
-
-##Exercício 1.3
-
-###Criar novo repositório Git
+### Create new Git repository
 
 ```git init```
 
-###Verificar estado dos arquivos/diretórios
+### Check status of files/directories
 
 ```git status```
 
-###Adicionar um diretório em específico
+### Add a specific directory
 
 ```git add meu_diretorio```
 
-###Commit de um arquivo
+### Commit a file
 
 ```git commit meu_arquivo.txt```
 
-###Remover diretório
+### Remove directory
 
 ```git rm -r diretorio```
 
-###Exibir histórico
+### View history
 
 ```git log```
 
-###Exemplo ilustrativo
+### Add .gitignore file
+This file is placed at the root of the repository and serves to ignore all unimportant files, i.e. files that will not be committed
+
+In this exercise, the existence of another employee was simulated, for that a new folder was created with the name 'location2', in another directory on the computer.
 
 ```
-cd project_folder # move to the root of the working folder to be imported
-git init # initialize a local git repo in this folder
-git remote add origin <REMOTE_URL> #must adapt the url for your repo
-git add. # mark all existing changes in this root to be commited
-git commit -m "Initial project setup for exercise 1_3" #create the
-commit snapshot locally
-git push -u origin main #uploads the local commit to the shared repo
+git clone git@github.com:Souz11/IES_103415.git
 ```
 
-###Adicionar ficheiro .gitignore
-Este ficheiro é colocado na raíz do repositório e serve para ignorar todos os ficheiros que não são importantes, ou seja, ficheiros que não vão ser commited
+The above command was used to get the files to the new location.
+In this new location, a logger was created, and the operations executed were written to the terminal and to a file, 'logs.log'.
+The Log4j2 helper library was used
 
-Neste exercício foi simulada a existência de outro colaborador, para isso foi criada uma nova pasta com o nome 'location2', noutro diretório do computador.
-
-```
-|
-`-- Desktop
-    	   `--location2
-	|-- IES
-		|--IES_97484
-		            `--location1
-git clone git@github.com:pedromonteiro01/IES_97484.git
-```
-
-O comando acima foi usado para obter os ficheiros no novo local.
-Nesta nova localização foi criado, então, um logger, sendo as operações executadas escritas no terminal e num ficheiro, 'logs.log'.
-Foi usada a biblioteca auxiliar Log4j2
-
-Links usados para criar os ficheiros:
+Links used to create the files:
 
 - https://www.baeldung.com/java-logging-intro
 - https://howtodoinjava.com/log4j2/log4j2-xml-configuration-example/
 
-Exemplo do ficheiro
+To commit from this new location (thus simulating the existence of more than one contributor to the project) the commands described at the beginning were used.
 
-```
-<Configuration status="info">
-    <Appenders>
-        <Console name="sout" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%p] %d{HH:mm:ss} %m%n \n"/>
-        </Console>
-        <File name="file" fileName="logs.log" append="true">
-            <PatternLayout pattern="[%p] %d{HH:mm:ss} %m%n \n">
-            </PatternLayout>
-        </File>
-    </Appenders>
-    <Loggers>
-        <Root level="info">
-            <AppenderRef ref="sout"/>
-            <AppenderRef ref="file"/>
-        </Root>
-    </Loggers>
-</Configuration>
-```
-
-Para dar commit a partir desta nova localização (simulando, então, a existência de mais do que um colaborador para o projeto) foram usados os comandos descritos no início.
-
-Para que seja possível ver todas as mensagens enviadas em cada commit pode ser usado o comando seguinte
+In order to see all the messages sent in each commit, the following command can be used
 
 ```git log --reverse --oneline```
 
-Serão listadas todas as mensagens, de todos os colaboradores do projeto.
+All messages from all project collaborators will be listed.
 
-##Exercício 1.4
+## Exercise 1.4
 
-Introdução ao Docker
+Introduction to Docker
 
-###O que são imagens? (docker images)
-Pode-se entender as imagens como sendo um template (uma classe OOP) que permite iniciar um container. Cada imagem é definida por um Dockerfile, um arquivo de configuração que contém todos os comandos que um utilizador precisa executar para modelar a imagem.
+### What are images? (Docker images)
+You can understand the images as being a template (an OOP class) that allows starting a container. Each image is defined by a Dockerfile, a configuration file that contains all the commands a user needs to run to model the image.
 
-Começar por instalar o docker engine, disponível em https://docs.docker.com/engine/install/. Após a instalação, para uma melhor interação pode-se executar o docker sem ser necessário usar permissões, isto é, sem sudo - https://docs.docker.com/engine/install/linux-postinstall/.
+Tutorial and Getting Started: https://docs.docker.com/get-started/ Followed the tutorial and the files are in this directory.
 
-Tutorial e Getting Started: https://docs.docker.com/get-started/ Foi seguido o tutorial e os ficheiros encontram-se neste diretório.
+The Portainer app was also installed, available at https://www.portainer.io/, which is a web application and facilitates the control of containers.
 
-Foi instalada também a Portainer app, disponível em https://www.portainer.io/, que é uma web application e facilita o controlo dos containers.
-
-###Alguns comandos docker:
-Ver os containers que estão a correr no momento
+### Some Docker commands:
+See the containers that are currently running
 
 ```docker ps```
 
-Criar e começar um container
+Create and start a container
 
 ```docker run```
 
-Remover um container
+remove a container
 
 ```docker rm```
 
-Ver a lista de imagens
+View the image list
 
 ```docker images```
 
-Criar uma nova imagem a partir do dockerfile
+Create a new image from dockerfile
 
 ```docker build```
 
-Fazer download de uma imagem de um repositório
+Download an image from a repository
 
 ```docker pull```
 
-Foi seguida a alternativa proposta no guião. Para isso foi criado um dockerfile, e 2 ficheiros que contém instruções SQL, visto que neste exemplo se correu o postgres
+### What is docker compose?
+It is a tool that allows you to define and run multi-container Docker applications. A YAML file is used to configure the services. Then, with a simple command it is possible to create and start all services.
 
-```
-docker run --name pg-docker -e POSTGRES_PASSWORD=docker -e POSTGRES_DB=sampledb
--e PGDATA=/tmp -d -p 5433:5432 -v ${PWD}:/var/lib/postgresql/data postgres:11
-```
+Using docker compose consists of 3 processes:
 
-###O que é o docker compose?
-É uma ferramenta que permite definir e correr multi-container Docker applications. É usado um ficheiro YAML para configurar os serviços. Depois, com um simples comando é possível criar e começar todos os serviços.
-
-Usar o docker compose consiste em 3 processos:
-
-1. Define your app’s environment with a Dockerfile so it can be reproduced anywhere.
+1. Define your app's environment with a Dockerfile so it can be reproduced anywhere.
 
 2. Define the services that make up your app in docker-compose.yml so they can be run together in an isolated environment.
 
 3. Run docker compose up and the Docker compose command starts and runs your entire app. You can alternatively run docker-compose up using the docker-compose binary.
 
-Exemplo de um ficheiro docker-compose.yml
-
-```
-version: "3.9"  # optional since v1.27.0
-services:
-web:
-build: .
-ports:
-- "5000:5000"
-volumes:
-- .:/code
-- logvolume01:/var/log
-links:
-- redis
-redis:
-image: redis
-volumes:
-logvolume01: {}
-```
-
-##Exercício 1.5
+## Exercise 1.5
 
 Foram criados 2 projetos maven para a resolução deste exercício. o projeto ipmaclient_api contém os dados da API, ou seja, contém os ficheiros responsáveis por obterem as temperaturas das cidades. O projeto weatherforecastbycity contém uma main simples, disponível em main, onde é chamada a função criada no primeiro projeto, que recebe como parametro o argumento da linha de comandos (args[0]).
 
@@ -310,61 +231,73 @@ Alterações em weatherforecastbycity/pom.xml
   </repositories>
   ```
 
-##Review questions
-A)
-As principais fases de um projeto maven são: - validate: validate the project is correct and all necessary information is available - compile: compile the source code of the project - test: test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed - package: take the compiled code and package it in its distributable format, such as a JAR - verify: run any checks on results of integration tests to ensure quality criteria are met - install: install the package into the local repository, for use as a dependency in other projects locally - deploy: done in the build environment, copies the final package to the remote repository for sharing with other developers and projects
+## Review questions
+### A) 
+Maven has three lifecycles: clean, site and default. Explain the main phases in the default lifecycle.
 
-B)
-Sim, o maven é uma build automation tool usada principalmente para projetos Java, sendo que pode ser usada com qualquer outro tipo de linguagem (C#, Ruby, etc). É uma ferramente que permite gerir projetos, que se baseia no POM (Project Object Model). Pode ser usado para gerir e para correr projetos, tornando todo o processo mais fácil. Podem ser facilmente usados diferentes plugins e diferentes dependências de acordo com o nosso projeto.
+Validate-> validate the project is correct and all necessary information is available
 
-C)
-Começar por obter o código presente no repositório, isto é, fazer clone do repositório.
+Compile-> compile the source code of the project
 
-```git clone <REPOSITORY_URL>```
+Test-> test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
 
-Caso já tenha o repositório no computador, descarregar as atualizações mais recentes
+Package-> take the compiled code and package it in its distributable format, such as a JAR.
+
+Verify-> run any checks on results of integration tests to ensure quality criteria are met
+
+Install-> install the package into the local repository, for use as a dependency in other projects locally
+
+Deploy-> done in the build environment, copies the final package to the remote repository for sharing with other developers and projects.
+
+### B) 
+Maven is a build tool; is it appropriate to run your project to?
+
+Yes, it is. Maven main purpose is to configure projects and handle the build activities and resulting artifacts but t can also activate different plugins which can be used to execute(run) specific classes.
+###C) What would be a likely sequence of Git commands required to contribute with a new feature to a given project? (i.e., get a fresh copy, develop some increment, post back the added functionality)
 
 ```git pull```
 
-Entrar no diretório correto
-
-```cd project_folder```
-
-Adicionar os ficheiros alterados (será usado "." que significa todos os ficheiros)
+To get the most recent changes of the code.
 
 ```git add .```
 
-Escrever a mensagem de commit
+To add the files we want to update. Parameter "." means we're selecting everything from the repository.
 
-```git commit -m "This is a commit message!"```
+```git commit -m "Lab01 completed"```
 
-Enviar os ficheiros para o repositório
+To commit the changes. It requires parameter -m followed by a commit message.
 
 ```git push```
 
-D)
-Na minha opinião as mensagens de commit são importantes em todos os trabalhos, especialmente nos trabalhos de equipa para garantir uma boa comunicação, ou seja, todos os membros estarem em sintonia, isto é, saberem o que já foi feito, evitando pensar em algo que já foi implementado. Uma boa mensagem deve encaminhar para aquilo que é preciso ser feito.
+To update the repository with the newly committed changes.
 
-Fonte: https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/
-Dicas/Regras para uma boa mensagem de commit:
+### D) 
+There are strong opinions on how to write Git commit messages… Find some best practices online and give your own informed recommendations on how to write good commit messages (in a team project).
 
-1. Deve-se especificar o tipo de commit
-- feat: adicionar uma nova feature 
--  fix: corrigir um erro
-- style: mudanças relacionadas com o estilo da aplicação
-- refactor: refazer uma secção específica da app 
--  test: tudo relacionado com testes
-- docs: tudo relacionado com documentação
-2. Separar o assunto do corpo da mensagem com uma linha em branco
-3. A mensagem não deve conter erros relacionados com espaços em branco
-4. Remover marcas de pontuação desnecessárias
-5. Não terminar a linha do assunto com um ponto final
-6. Usar maiúscula na primeira letra do assunto e em cada parágrafo
-7. Usar o modo imperativo
-8. Usar o corpo da mensagem para explicar as mundanças e o porquê
-9. Não assumir que quem revê o código sabe a priori qual o problema, deve-se adicionar
-10. Não pensar que o código é auto-explicativo
-11. Seguir a convenção usada pela equipa
+Commit messages are important because they give us a generalized idea of what is going on in the current code and to know what was updated or removed, so other colaboratores can be on the same page. The contributors to these repositories know that a well-crafted Git commit message is the best way to communicate context about a change to fellow developers
 
-E)
-É importante porque se usarmos sempre o mesmo container a cada vez que é executado docker stop/start é necessário reiniciar. Caso se use docker run vai ser criado um novo container vazio, ou seja, vão ser perdidos dados. É,então, necessário criar volumes com espaço suficiente (sendo que o espaço default é muito baixo) para database production e garantir que há uma boa estratégia de backup, evitando assim que haja dados que são perdidos.
+7 rules:
+Separate subject from body with a blank line
+Limit the subject line to 50 characters
+Capitalize the subject line
+Do not end the subject line with a period
+Use the imperative mood in the subject line
+Wrap the body at 72 characters
+Use the body to explain what and why vs. how
+
+
+Example:
+
+__Bad__
+
+```git commit -m "Fix bug"```
+
+__Good__
+
+```git commit -m "Add auto login for verified users - Closes BLG-20"```
+
+### E) 
+Docker automatically prepares the required volume space as you start a container. Why is it important that you take an extra step configuring the volumes for a (production) database?
+
+Volumes help you decouple the configuration of the Docker host from the container runtime. When you want to store your container's data on a remote host or a cloud provider, rather than locally. When you need to back up, restore, or migrate data from one Docker host to another, volumes are a better choice.
+Dedicated resources makes data safer agaisnt problems like container deletion and it is aso easier to backup production databases.
