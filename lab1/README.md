@@ -52,41 +52,24 @@ my-app
 ```
 
 ### The POM
-O ficheiro pom.xml é o ficheiro principal de configuração de um projeto Maven. É neste ficheiro que está a maior parte da informação necessária para a criação de um projeto.
+O ficheiro pom.xml is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects.
 
-Um exemplo de um ficheiro pom.xml: my-app/pom.xml
+### Projetos Maven
 
-Build the Project Ao correr o comando,
-
-```mvn package```
-
-No final será apresentado:
-
-```
-...
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.953 s
-[INFO] Finished at: 2019-11-24T13:05:10+01:00
-[INFO] ------------------------------------------------------------------------
-Ao contrário do primeiro comando (archetype:generate), este é apenas uma palavra, package. Para além de ser um goal, é também um fase, pelo que também serão executadas todas as fases anteriores.
-```
-
-### Run and Test
-
-```java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App```
-
-###Projetos Maven
 archetype: um padrão ou modelo original do qual todas as outras coisas do mesmo tipo são feitas. Modelo genérico de uma componente no sistema.
+
 groupId: identifica de forma única o projeto entre todos os projetos. Deve seguir as normas de nomes para os pacotes utilizadas em java, o que significa que começa por um domain name invertido que é controlado pelo utilizador. Por exemplo, com.mycompany.app, org.apache.maven, etc.
+
 artifactId: nome do jar sem versão
 
 Foi criado um projeto Maven com o nome my-app
 
 groupId: com.mycompany.app
+
 artifactId: my-app
+
 version: 1.0-SNAPSHOT
+
 Disponível em my-app
 
 Para compilar
@@ -100,6 +83,18 @@ Para correr o programa (deve-se adaptar o package e o nome da classe)
 Para correr o programa com argumentos de entrada
 
 ```mvn exec:java -Dexec.mainClass="package.class" -Dexec.args="arg0 arg1 arg2"```
+
+No final será apresentado:
+
+```
+...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.953 s
+[INFO] Finished at: 2019-11-24T13:05:10+01:00
+[INFO] ------------------------------------------------------------------------
+```
 
 ## Exercício 1.3
 
