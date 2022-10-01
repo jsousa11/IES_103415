@@ -1,37 +1,32 @@
 # IES_103415
-## Exercício 1.1
+## Exercise 1.1
 
-Para a realização do guião do guião é necessária a instalação do Maven (que requer que a linguagem Java esteja instalada, sendo recomendada a versão 11 do JDK)
-
+To create the script, it is necessary to install Maven (which requires the Java language to be installed, with JDK version 11 being recommended)
 Verificar a versão do Java instalada
 
 ```java --version```
 
-Para instalar o Maven foi usado o comando
+To install Maven, use the command
 
 ```sudo apt install maven```
 
-De seguida, verificar a versão do Maven que foi instalada
+Then check the version of Maven that was installed
 
 ```mvn --version```
 
-## Exercício 1.2
+## Exercise 1.2
 
-Usual Command Line Commands
+Build tool: Tools to obtain dependencies, compile source code, package artifacts, etc. Tools to state the project dependencies on external artifacts
 
-```mvn --version```
-
-Ver a versão Maven instalada
-
-Criar um projeto
+Create a project
 
 ```mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false```
 
-É criado um diretório com o mesmo nome do artifactId
+A directory with the same name as the artifactId is created
 
 ```cd my-app```
 
-Estrutura do Projeto
+Project Structure
 
 ```
 my-app
@@ -52,17 +47,17 @@ my-app
 ```
 
 ### The POM
-O ficheiro pom.xml is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects.
+The pom.xml file is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects.
 
-### Projetos Maven
+### Maven Projects
 
-archetype: um padrão ou modelo original do qual todas as outras coisas do mesmo tipo são feitas. Modelo genérico de uma componente no sistema.
+archetype: an original pattern or model from which all other things of the same type are made. Generic model of a component in the system.
 
-groupId: identifica de forma única o projeto entre todos os projetos. Deve seguir as normas de nomes para os pacotes utilizadas em java, o que significa que começa por um domain name invertido que é controlado pelo utilizador. Por exemplo, com.mycompany.app, org.apache.maven, etc.
+groupId: uniquely identifies the project among all projects. It must follow the package naming rules used in java, which means it starts with an inverted domain name that is controlled by the user. For example, com.mycompany.app, org.apache.maven, etc.
 
-artifactId: nome do jar sem versão
+artifactId: unversioned jar name
 
-Foi criado um projeto Maven com o nome my-app
+A Maven project named my-app was created
 
 groupId: com.mycompany.app
 
@@ -70,21 +65,21 @@ artifactId: my-app
 
 version: 1.0-SNAPSHOT
 
-Disponível em my-app
+Available in my-app
 
-Para compilar
+To compile
 
 ```mvn package```
 
-Para correr o programa (deve-se adaptar o package e o nome da classe)
+To run the program (you must adapt the package and the class name)
 
 ```mvn exec:java -Dexec.mainClass="package.class"```
 
-Para correr o programa com argumentos de entrada
+To run the program with input arguments
 
 ```mvn exec:java -Dexec.mainClass="package.class" -Dexec.args="arg0 arg1 arg2"```
 
-No final será apresentado:
+At the end you will be presented:
 
 ```
 ...
@@ -96,135 +91,106 @@ No final será apresentado:
 [INFO] ------------------------------------------------------------------------
 ```
 
-## Exercício 1.3
+## Exercise 1.3
 
-### Criar novo repositório Git
+### Create new Git repository
 
 ```git init```
 
-### Verificar estado dos arquivos/diretórios
+### Check status of files/directories
 
 ```git status```
 
-### Adicionar um diretório em específico
+### Add a specific directory
 
 ```git add meu_diretorio```
 
-### Commit de um arquivo
+### Commit a file
 
 ```git commit meu_arquivo.txt```
 
-### Remover diretório
+### Remove directory
 
 ```git rm -r diretorio```
 
-### Exibir histórico
+### View history
 
 ```git log```
 
-### Adicionar ficheiro .gitignore
-Este ficheiro é colocado na raíz do repositório e serve para ignorar todos os ficheiros que não são importantes, ou seja, ficheiros que não vão ser commited
+### Add .gitignore file
+This file is placed at the root of the repository and serves to ignore all unimportant files, i.e. files that will not be committed
 
-Neste exercício foi simulada a existência de outro colaborador, para isso foi criada uma nova pasta com o nome 'location2', noutro diretório do computador.
+In this exercise, the existence of another employee was simulated, for that a new folder was created with the name 'location2', in another directory on the computer.
 
 ```
 git clone git@github.com:Souz11/IES_103415.git
 ```
 
-O comando acima foi usado para obter os ficheiros no novo local.
-Nesta nova localização foi criado, então, um logger, sendo as operações executadas escritas no terminal e num ficheiro, 'logs.log'.
-Foi usada a biblioteca auxiliar Log4j2
+The above command was used to get the files to the new location.
+In this new location, a logger was created, and the operations executed were written to the terminal and to a file, 'logs.log'.
+The Log4j2 helper library was used
 
-Links usados para criar os ficheiros:
+Links used to create the files:
 
 - https://www.baeldung.com/java-logging-intro
 - https://howtodoinjava.com/log4j2/log4j2-xml-configuration-example/
 
-Para dar commit a partir desta nova localização (simulando, então, a existência de mais do que um colaborador para o projeto) foram usados os comandos descritos no início.
+To commit from this new location (thus simulating the existence of more than one contributor to the project) the commands described at the beginning were used.
 
-Para que seja possível ver todas as mensagens enviadas em cada commit pode ser usado o comando seguinte
+In order to see all the messages sent in each commit, the following command can be used
 
 ```git log --reverse --oneline```
 
-Serão listadas todas as mensagens, de todos os colaboradores do projeto.
+All messages from all project collaborators will be listed.
 
-## Exercício 1.4
+## Exercise 1.4
 
-Introdução ao Docker
+Introduction to Docker
 
-### O que são imagens? (docker images)
-Pode-se entender as imagens como sendo um template (uma classe OOP) que permite iniciar um container. Cada imagem é definida por um Dockerfile, um arquivo de configuração que contém todos os comandos que um utilizador precisa executar para modelar a imagem.
+### What are images? (Docker images)
+You can understand the images as being a template (an OOP class) that allows starting a container. Each image is defined by a Dockerfile, a configuration file that contains all the commands a user needs to run to model the image.
 
-Começar por instalar o docker engine, disponível em https://docs.docker.com/engine/install/. Após a instalação, para uma melhor interação pode-se executar o docker sem ser necessário usar permissões, isto é, sem sudo - https://docs.docker.com/engine/install/linux-postinstall/.
+Tutorial and Getting Started: https://docs.docker.com/get-started/ Followed the tutorial and the files are in this directory.
 
-Tutorial e Getting Started: https://docs.docker.com/get-started/ Foi seguido o tutorial e os ficheiros encontram-se neste diretório.
+The Portainer app was also installed, available at https://www.portainer.io/, which is a web application and facilitates the control of containers.
 
-Foi instalada também a Portainer app, disponível em https://www.portainer.io/, que é uma web application e facilita o controlo dos containers.
-
-### Alguns comandos docker:
-Ver os containers que estão a correr no momento
+### Some Docker commands:
+See the containers that are currently running
 
 ```docker ps```
 
-Criar e começar um container
+Create and start a container
 
 ```docker run```
 
-Remover um container
+remove a container
 
 ```docker rm```
 
-Ver a lista de imagens
+View the image list
 
 ```docker images```
 
-Criar uma nova imagem a partir do dockerfile
+Create a new image from dockerfile
 
 ```docker build```
 
-Fazer download de uma imagem de um repositório
+Download an image from a repository
 
 ```docker pull```
 
-Foi seguida a alternativa proposta no guião. Para isso foi criado um dockerfile, e 2 ficheiros que contém instruções SQL, visto que neste exemplo se correu o postgres
+### What is docker compose?
+It is a tool that allows you to define and run multi-container Docker applications. A YAML file is used to configure the services. Then, with a simple command it is possible to create and start all services.
 
-```
-docker run --name pg-docker -e POSTGRES_PASSWORD=docker -e POSTGRES_DB=sampledb
--e PGDATA=/tmp -d -p 5433:5432 -v ${PWD}:/var/lib/postgresql/data postgres:11
-```
+Using docker compose consists of 3 processes:
 
-### O que é o docker compose?
-É uma ferramenta que permite definir e correr multi-container Docker applications. É usado um ficheiro YAML para configurar os serviços. Depois, com um simples comando é possível criar e começar todos os serviços.
-
-Usar o docker compose consiste em 3 processos:
-
-1. Define your app’s environment with a Dockerfile so it can be reproduced anywhere.
+1. Define your app's environment with a Dockerfile so it can be reproduced anywhere.
 
 2. Define the services that make up your app in docker-compose.yml so they can be run together in an isolated environment.
 
 3. Run docker compose up and the Docker compose command starts and runs your entire app. You can alternatively run docker-compose up using the docker-compose binary.
 
-Exemplo de um ficheiro docker-compose.yml
-
-```
-version: "3.9"  # optional since v1.27.0
-services:
-web:
-build: .
-ports:
-- "5000:5000"
-volumes:
-- .:/code
-- logvolume01:/var/log
-links:
-- redis
-redis:
-image: redis
-volumes:
-logvolume01: {}
-```
-
-## Exercício 1.5
+## Exercise 1.5
 
 Foram criados 2 projetos maven para a resolução deste exercício. o projeto ipmaclient_api contém os dados da API, ou seja, contém os ficheiros responsáveis por obterem as temperaturas das cidades. O projeto weatherforecastbycity contém uma main simples, disponível em main, onde é chamada a função criada no primeiro projeto, que recebe como parametro o argumento da linha de comandos (args[0]).
 
