@@ -1,0 +1,24 @@
+13-Oct-2022 11:54:38.972 INFO [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+13-Oct-2022 11:54:38.973 INFO [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Global resources are available
+13-Oct-2022 11:54:38.981 INFO [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+13-Oct-2022 12:29:26.754 INFO [http-nio-8080-exec-7] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+13-Oct-2022 12:29:31.586 INFO [http-nio-8080-exec-5] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+13-Oct-2022 14:34:15.246 INFO [http-nio-8080-exec-10] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+13-Oct-2022 14:34:15.246 INFO [http-nio-8080-exec-10] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Global resources are available
+13-Oct-2022 14:34:15.256 INFO [http-nio-8080-exec-10] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+13-Oct-2022 14:58:29.143 INFO [http-nio-8080-exec-5] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+13-Oct-2022 14:59:17.761 INFO [http-nio-8080-exec-3] org.apache.catalina.core.ApplicationContext.log HTMLManager: sessions: Session action 'null' for web application '/webapp-javaee7'
+13-Oct-2022 14:59:22.725 INFO [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationContext.log HTMLManager: sessions: Session action 'sessionDetail' for web application '/webapp-javaee7'
+13-Oct-2022 14:59:30.406 INFO [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log HTMLManager: sessions: Session action 'sessionDetail' for web application '/webapp-javaee7'
+13-Oct-2022 14:59:32.196 INFO [http-nio-8080-exec-4] org.apache.catalina.core.ApplicationContext.log HTMLManager: sessions: Session action 'sessionDetail' for web application '/webapp-javaee7'
+13-Oct-2022 14:59:33.498 INFO [http-nio-8080-exec-7] org.apache.catalina.core.ApplicationContext.log HTMLManager: sessions: Session action 'null' for web application '/webapp-javaee7'
+13-Oct-2022 15:52:04.406 INFO [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+13-Oct-2022 15:52:04.406 INFO [http-nio-8080-exec-2] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Global resources are available
+13-Oct-2022 15:54:36.415 INFO [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+13-Oct-2022 15:54:36.415 INFO [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log HTMLManager: init: Global resources are available
+13-Oct-2022 15:55:59.373 INFO [http-nio-8080-exec-10] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+13-Oct-2022 15:56:06.731 INFO [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log HTMLManager: undeploy: Undeploying web application at '/webapp-javaee7'
+13-Oct-2022 15:56:07.274 INFO [http-nio-8080-exec-1] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+13-Oct-2022 15:56:27.960 INFO [http-nio-8080-exec-5] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+13-Oct-2022 15:56:32.327 INFO [http-nio-8080-exec-3] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
+13-Oct-2022 16:10:32.802 INFO [http-nio-8080-exec-20] org.apache.catalina.core.ApplicationContext.log HTMLManager: list: Listing contexts for virtual host 'localhost'
