@@ -46,7 +46,10 @@ spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect
 spring.jpa.hibernate.ddl-auto = update
 ````
 
-To test the application, POST, GET, etc. requests were made using Postman.
+To test the application, POST, GET, etc. requests were made using Postman:
+![alt text](https://github.com/Souz11/IES_103415/blob/main/lab3/Captura%20de%20ecr%C3%A3%20de%202022-10-29%2017-19-27.png)
+![alt text](https://github.com/Souz11/IES_103415/blob/main/lab3/Captura%20de%20ecr%C3%A3%20de%202022-10-29%2017-19-46.png)
+![alt text](https://github.com/Souz11/IES_103415/blob/main/lab3/Captura%20de%20ecr%C3%A3%20de%202022-10-29%2017-20-01.png)
 
 ## Exercise 3.3
 
@@ -63,7 +66,8 @@ In order to separate the controller from the repository, a @Service component wa
 It's the controller that allows the HTTP connection, but it's the Service that responds to all requests. The Service contains all the logic and interacts with the Repository.
 NOTE: RestController must not have any references to the Repository!
 
-It is possible to make GET and POST requests, that is, it is possible to see and enter data and for this Postman was used.
+It is possible to make GET and POST requests, that is, it is possible to see and enter data and for this Postman was used:
+![alt text](https://github.com/Souz11/IES_103415/blob/main/lab3/Captura%20de%20ecr%C3%A3%20de%202022-10-29%2018-25-31.png)
 
 ## Review questions
 
