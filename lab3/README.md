@@ -46,10 +46,7 @@ spring.jpa.database-platform=org.hibernate.dialect.MySQL5InnoDBDialect
 spring.jpa.hibernate.ddl-auto = update
 ````
 
-To test the application, POST, GET, etc. requests were made using Postman:
-![](Captura de ecrã de 2022-10-29 17-19-27.png)
-![](Captura de ecrã de 2022-10-29 17-19-46.png)
-![](Captura de ecrã de 2022-10-29 17-20-01.png)
+To test the application, POST, GET, etc. requests were made using Postman.
 
 ## Exercise 3.3
 
@@ -66,18 +63,26 @@ In order to separate the controller from the repository, a @Service component wa
 It's the controller that allows the HTTP connection, but it's the Service that responds to all requests. The Service contains all the logic and interacts with the Repository.
 NOTE: RestController must not have any references to the Repository!
 
-It is possible to make GET and POST requests, that is, it is possible to see and enter data and for this Postman was used
-![](Captura de ecrã de 2022-10-29 18-25-31.png)
+It is possible to make GET and POST requests, that is, it is possible to see and enter data and for this Postman was used.
 
 ## Review questions
-A) Explain the differences between the RestController and Controller components used in different parts of this lab
+
+__A)__ Explain the differences between the RestController and Controller components used in different parts of this lab
 
 The main difference between Controller component and RestController is in the way the HTTP response body is created. Using the @Controller annotation we needed to define the view but using @RestController, the service simply returns the object data as a JSON/XML without having to add @RequestBody to every handler.
-B) Create a visualization of the Spring Boot layers (UML diagram or similar), displaying the key abstractions in the solution of 3.3, in particular: entities, repositories, services and REST controllers. Describe the role of the elements modeled in the diagram
 
-Answer in ./diagrama.png
-.
-C) Explain the annotations @Table, @Colum, @Id found in the Employee entity
+__B)__ Create a visualization of the Spring Boot layers (UML diagram or similar), displaying the key abstractions in the solution of 3.3, in particular: entities, repositories, services and REST controllers. Describe the role of the elements modeled in the diagram
+
+- Entity:
+  Define a estrutura de dados, os campos necessários e os tipos de dados
+- Repository:
+  Cria uma interface CRUD sob uma entidade, estando disponíveis métodos para consultar, remover, criar e dar update (CRUD: Create Read Update Delete)
+- Service:
+  Adiciona uma nova camada que contém toda a lógica, responde a pedidos HTTP e interage com o repository, isto é serve de intermediário entre o controller e o repository
+- RestController:
+  Cria a associação entre os URL's e os métodos do Service
+
+__C)__ Explain the annotations @Table, @Colum, @Id found in the Employee entity
 @Table
 
 Specifies the primary table for the annotated entity.
@@ -103,8 +108,8 @@ Every entity object that is stored in the database has a primary key.
 Once assigned, the primary key cannot be modified. It represents the entity object as long as it exists in the database.
 
 Allows you to tag a certain field as being the object's primary key (i.e what identifies it) So when we use @Id @GeneratedValue(strategy = GenerationType.AUTO, we're creating an auto-generated primary key for our Employee
-.
-D) Explain the use of the annotation @AutoWired (in the Rest Controller class)
+
+__D)__ Explain the use of the annotation @AutoWired (in the Rest Controller class)
 
 This annotation allows Spring to resolve and inject collaborating beans into your bean.
 
